@@ -21,6 +21,9 @@ class Editor(models.Model):
 class tags(models.Model):
     name = models.CharField(max_length =30)
 
+    def __str__(self):
+        return self.first_name
+
 
 class Article(models.Model):
     title = models.CharField(max_length =60)
