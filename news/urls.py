@@ -1,6 +1,5 @@
 from django.conf import settings
 from django.conf.urls.static import static
-
 from django.conf.urls import url
 from . import views
 
@@ -11,7 +10,8 @@ urlpatterns=[
     # url('^today/$',views.news_of_day,name='newsToday'),
     url(r'^archives/(\d{4}-\d{2}-\d{2})/$',views.past_days_news,name = 'pastNews'),
 
-    url(r'^article/(\d+)',views.article,name ='article')
+    url(r'^article/(\d+)',views.article,name ='article'),
+    url(r'^new/article$', views.new_article, name='new-article')
 
 ]
 
