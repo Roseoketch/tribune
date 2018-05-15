@@ -60,11 +60,12 @@ def article(request,article_id):
     except DoesNotExist:
         raise Http404()
     return render(request,"all-news/article.html", {"article":article})
+
 @login_required(login_url='/accounts/login/')
 def new_article(request):
     if request.method =='POST':
         form = NewArticleForm(request.POST,request.FILES)
-
+        current_user = request.user
         if form.is_valid():
             article = form.save(commit=False)
             article.editor = current_user
