@@ -51,6 +51,8 @@ INSTALLED_APPS = [
     'news.apps.NewsConfig',
     'tinymce',
     'rest_framework',
+    'rest_framework.authtoken',
+
 
 ]
 
@@ -99,6 +101,13 @@ DATABASES = {
 }
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    )
+}
+
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
 
