@@ -11,7 +11,9 @@ urlpatterns=[
     url(r'^archives/(\d{4}-\d{2}-\d{2})/$',views.past_days_news,name = 'pastNews'),
 
     url(r'^article/(\d+)',views.article,name ='article'),
-    url(r'^new/article$', views.new_article, name='new-article')
+    url(r'^new/article$', views.new_article, name='new-article'),
+    url(r'^ajax/newsletter/$', views.newsletter, name='newsletter'),
+    url(r'^api/merch/$', views.MerchList.as_view())
 
 ]
 
